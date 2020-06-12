@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+      xml:lang="ru" lang="ru">
+
+<h:head>
+    <!--<meta charset="UTF-8">-->
+    <meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=10"/>
+    <title>Web Labs Project | Вход</title>
+    <link rel="stylesheet" href="css/style.css"/>
+</h:head>
+<h:body>
+    <div class="content-wrapper">
+        <div class="header">
+            <p class="header-text">Web Labs Project</p>
+        </div>
+
+        <div class="container clearfix">
+            <div class="content">
+                <!-- for-example -->
+                <p>
+                    <h:outputLabel class="#{(customerBean.error ? 'error-msg' : 'message')}"
+                                   value="#{customerBean.topMessage}"/>
+                </p>
+
+                <h:form class="form">
+
+                    <fieldset>
+
+                        <!-- Form Name -->
+                        <legend class="form-text">Авторизация</legend>
+
+                        <!-- Text input-->
+                        <div class="form-group" align="center">
+                            <label class="form-text">Логин</label>
+                            <div>
+                                <h:inputText id="login"
+                                             value="#{customerBean.login}"
+                                             a:placeholder="Логин"
+                                             required="true"
+                                             requiredMessage="Введите логин"
+                                             styleClass="#{(customerBean.error ? 'form-input-invalid' : 'form-input')}"
+                                />
+                                <div><h:message styleClass="error-msg" for="login"/></div>
+                            </div>
+                        </div>
+
+                        <!-- Password input-->
+                        <div class="form-group" align="center">
+                            <label class="form-text">Пароль</label>
+                            <div>
+                                <h:inputSecret id="password"
+                                               value="#{customerBean.password}"
+                                               a:placeholder="Пароль"
+                                               required="true"
+                                               requiredMessage="Введите пароль"
+                                               styleClass="#{(customerBean.error ? 'form-input-invalid' : 'form-input')}"
+                                />
+                                <div><h:message styleClass="error-msg" for="password"/></div>
+                            </div>
+                        </div>
+
+                        <!-- Button -->
+                        <div class="form-group" align="center">
+                            <h:commandButton value="Войти" class="form-button"
+                                             action="#{customerBean.validateUserLogin}"/>
+                        </div>
+
+                    </fieldset>
+                </h:form>
+
+            </div>
+        </div>
+    </div>
+</h:body>
+</html>

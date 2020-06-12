@@ -1,0 +1,24 @@
+{
+    "id": 0,
+    "items": [
+
+        {
+            "total": 10,
+            "price": 1,
+            "name": "xxx",
+            "count": 10
+        },
+        {
+              "total": 3,
+              "price": 1.5,
+              "name": "aaa",
+              "count": 2
+        },
+        {
+             "total": 10,
+             "price": 1,
+             "name": "xxx",
+             "count": 10
+        }
+    ]
+}

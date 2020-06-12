@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+      xml:lang="ru" lang="ru">
+
+<h:head>
+    <!--<meta charset="UTF-8">-->
+    <meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=10"/>
+    <title>Web Labs Project | Добавить товар в заказ</title>
+    <link rel="stylesheet" href="css/style.css"/>
+</h:head>
+<h:body>
+    <div class="content-wrapper">
+        <div class="header">
+            <p class="header-text">Web Labs Project</p>
+        </div>
+
+        <div class="container clearfix">
+            <div class="content">
+
+                <p><h:outputLabel class="message" value="Заказ №#{orderProductBean.orderId}"/></p>
+
+                <p><h:outputLabel class="message" value="Введите данные"/></p>
+
+                <h:form class="form">
+
+                    <fieldset>
+
+                        <!-- Form Name -->
+                        <legend class="form-text">Параметры нового товара</legend>
+
+                        <!-- Text input-->
+                        <div class="form-group" align="center">
+                            <label class="form-text">Название</label>
+                            <div>
+                                <h:inputText id="name"
+                                             value="#{orderProductBean.name}"
+                                             a:placeholder="Название"
+                                             required="true"
+                                             requiredMessage="Введите название"
+                                             styleClass="form-input"
+                                             validator="#{orderProductBean.productNameValidator}"
+                                />
+                                <div><h:message styleClass="error-msg" for="name"/></div>
+                            </div>
+                        </div>
+
+                        <!-- Text input-->
+                        <div class="form-group" align="center">
+                            <label class="form-text">Цена</label>
+                            <div>
+                                <h:inputText id="price"
+                                             value="#{orderProductBean.price}"
+                                             a:placeholder="Цена за 1 шт"
+                                             required="true"
+                                             requiredMessage="Введите цену за 1 шт"
+                                             styleClass="form-input"
+                                             validator="#{orderProductBean.priceValidator}"
+                                />
+                                <div><h:message styleClass="error-msg" for="price"/></div>
+                            </div>
+                        </div>
+
+                        <!-- Text input-->
+                        <div class="form-group" align="center">
+                            <label class="form-text">Количество</label>
+                            <div>
+                                <h:inputText id="count"
+                                             value="#{orderProductBean.count}"
+                                             a:placeholder="Количество"
+                                             required="true"
+                                             requiredMessage="Введите количество"
+                                             styleClass="form-input"
+                                             validator="#{orderProductBean.countValidator}"
+                                />
+                                <div><h:message styleClass="error-msg" for="count"/></div>
+                            </div>
+                        </div>
+                        <!--<h:messages style="color: red"/>-->
+
+
+                        <!-- Button -->
+                        <div class="form-group" align="center">
+                            <h:commandButton value="Добавить" class="form-button"
+                                             action="#{orderProductBean.addProduct(customerBean)}"/>
+                        </div>
+
+                    </fieldset>
+                </h:form>
+
+            </div>
+        </div>
+    </div>
+</h:body>
+</html>

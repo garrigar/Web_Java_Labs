@@ -1,0 +1,7 @@
+0:0:0:0:0:0:0:1 - - [08/Jun/2020:23:32:44 +0400] "GET /WebLabsProject/ HTTP/1.1" 200 2044 http-bio-8899-exec-1 76
+0:0:0:0:0:0:0:1 - - [08/Jun/2020:23:32:44 +0400] "GET /WebLabsProject/css/style.css HTTP/1.1" 200 2873 http-bio-8899-exec-3 5
+0:0:0:0:0:0:0:1 - - [08/Jun/2020:23:32:45 +0400] "GET /WebLabsProject/css/background.jpg HTTP/1.1" 200 465427 http-bio-8899-exec-4 12
+0:0:0:0:0:0:0:1 - - [08/Jun/2020:23:32:45 +0400] "GET /favicon.ico HTTP/1.1" 404 - http-bio-8899-exec-5 0
+0:0:0:0:0:0:0:1 - - [08/Jun/2020:23:32:53 +0400] "POST /WebLabsProject/index.jsp HTTP/1.1" 200 2075 http-bio-8899-exec-6 403
+0:0:0:0:0:0:0:1 - - [08/Jun/2020:23:34:18 +0400] "GET /WebLabsProject HTTP/1.1" 302 - http-bio-8899-exec-1 0
+0:0:0:0:0:0:0:1 - - [08/Jun/2020:23:34:18 +0400] "GET /WebLabsProject/ HTTP/1.1" 404 981 http-bio-8899-exec-3 14

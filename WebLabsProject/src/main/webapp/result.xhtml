@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:c="http://java.sun.com/jsp/jstl/core" xml:lang="ru" lang="ru"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=10"/>
+    <title>Web Labs Project | Orders of #{customerBean.customer.name}</title>
+    <link rel="stylesheet" href="css/style.css"/>
+</head>
+
+<h:body>
+<c:if test="#{customerBean.customer == null}">
+    <f:metadata>
+        <f:viewAction action="fatal_error"/>
+    </f:metadata>
+</c:if>
+<div class="content-wrapper">
+    <header class="header">
+        <p class="header-text">Web Labs Project</p>
+    </header>
+
+    <div class="container clearfix">
+        <main class="content">
+
+            <p class="message">Добро пожаловать, #{customerBean.customer.name}</p>
+            <!--<a href="index.jsp">Back to login page</a>-->
+            <!--<a href="result.xml">Download xml file</a>-->
+
+            <div class="links-container">
+                <h:form>
+                    <h:commandLink value="Выйти" action="#{customerBean.logOut}"/>
+                </h:form>
+                <h:form>
+                    <h:commandLink value="Скачать XML" action="#{customerBean.downloadXML}"/>
+                </h:form>
+            </div>
+
+            <ui:repeat value="#{customerBean.customer.orders}" var="order">
+                <table>
+                    <h:dataTable value="#{order.products}" var="product">
+                        <f:facet name="header">Заказ №#{order.id}</f:facet>
+                        <h:column>
+                            <f:facet name="header">Название</f:facet>
+                            #{product.name}
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">Цена за 1 шт</f:facet>
+                            #{product.price}
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">Количество</f:facet>
+                            #{product.count}
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">Итого за товар</f:facet>
+                            #{product.total}
+                        </h:column>
+                        <h:column>
+                            <h:form>
+                                <h:commandButton value="Удалить товар"
+                                                 action="#{customerBean.deleteProduct(product.name)}"
+                                                 styleClass="form-button">
+                                </h:commandButton>
+                            </h:form>
+                        </h:column>
+                    </h:dataTable>
+                    <h:form>
+                        <h:commandButton value="Добавить товар в заказ №#{order.id}"
+                                         action="#{orderProductBean.insertProduct(order.id)}"
+                                         styleClass="form-button">
+                        </h:commandButton>
+                    </h:form>
+                </table>
+            </ui:repeat>
+
+        </main>
+    </div>
+</div>
+</h:body>
+</html>
